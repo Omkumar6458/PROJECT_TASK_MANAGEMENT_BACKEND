@@ -79,12 +79,10 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // TEMP: allow all (safe for testing, restrict later)
-        configuration.setAllowedOrigins(List.of("*"));
-
+        configuration.setAllowedOriginPatterns(List.of("*")); // ✅ IMPORTANT FIX
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
-        configuration.setAllowCredentials(false);
+        configuration.setAllowCredentials(true); // ✅ IMPORTANT
         configuration.setExposedHeaders(List.of("Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
