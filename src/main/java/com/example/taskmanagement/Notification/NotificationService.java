@@ -24,7 +24,7 @@ public class NotificationService {
         notification.setMessage("New task assigned: " + task.getTitle());
         notification.setRead(false);
 
-        // 🔴 LINK NOTIFICATION TO TASK
+        
         notification.setTask(task);
 
         repository.save(notification);
