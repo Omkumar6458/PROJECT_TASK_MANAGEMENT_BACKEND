@@ -5,11 +5,8 @@ WORKDIR /app
 
 COPY . .
 
-# Give permission to mvnw
 RUN chmod +x mvnw
-
-# Use mvnw instead of mvn
 RUN ./mvnw clean package -DskipTests
 
-CMD ["java", "-jar", "target/*.jar"]
-
+# IMPORTANT FIX 👇
+CMD ["sh", "-c", "java -jar target/*.jar"]
