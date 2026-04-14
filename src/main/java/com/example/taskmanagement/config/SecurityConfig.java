@@ -80,15 +80,12 @@ public class SecurityConfig {
     }
     
     
- @Bean
+
+@Bean
 public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
 
-    configuration.setAllowedOrigins(List.of(
-            "http://localhost:3000",
-            "https://omkumar6458.github.io",
-            "https://project-task-management-frontend-bc2vmimb9.vercel.app" // ✅ ADD THIS
-    ));
+    configuration.setAllowedOriginPatterns(List.of("*")); 
 
     configuration.setAllowedMethods(List.of(
             "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"
@@ -103,4 +100,5 @@ public CorsConfigurationSource corsConfigurationSource() {
 
     return source;
 }
+
 }
